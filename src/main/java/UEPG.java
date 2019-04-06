@@ -33,9 +33,11 @@ public class UEPG {
             UEPG vUEPG = new UEPG();
             try {
                 //vUEPG.testPLResolveExercicio();
+                
                 vUEPG.testBlocksLDS10();
             } catch (Exception e) {
-                System.out.println(e);
+                e.printStackTrace();
+                System.out.println("oi "+e);
             }
             
         }

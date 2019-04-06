@@ -41,9 +41,11 @@ public class BlocksFunctionFactory {
             // DEFININDO A AÇÃO DE CADA BLOCO DEPENDO DO ESTADO DE CADA UM
             // NESSE CASO ELE VERIFICA SE UM BLOCO ESTA EM CIMA DE OUTRO && SE O BLOCO QUE SERÁ MOVIDO ESTÁ NO TOPO
             // && SE A POSIÇÃO QUE ELE DESEJA COLOCAR ESTÁ LIVRE
+            
             public Set<Action> actions(Object state) {
             BlocksState board = (BlocksState) state;
             Set<Action> actions = new LinkedHashSet<Action>();
+           
 
             /*
             if ((isAt('c', 'b', board)) && (isFree('c', board)) && (isFreePos(0, board))) {
@@ -239,7 +241,8 @@ public class BlocksFunctionFactory {
             }
             
             //****************************************************************************
-            
+
+             
             return actions;
         }
 
@@ -317,7 +320,7 @@ public class BlocksFunctionFactory {
          *  
          */
         private boolean isFree(char bloco, BlocksState board) {
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 2; i++) {
                 for (int j = 0; j < 3; j++) {
 
                     if (board.stacks[i][j] == bloco) {
@@ -369,7 +372,7 @@ public class BlocksFunctionFactory {
         //COM ISSO ELE ATUALIZA O BOARD PARA PROSSEGUIR 
         // CASO CONTRÁRIO ELE MANTÉM A INSTANCIA DE BOARD JÁ USADA ANTERIORMENTE
         public Object result(Object state, Action action) {
-            
+            System.out.println("result");
             BlocksState board = (BlocksState) state;
             BlocksState newBoard = new BlocksState();
             newBoard = board;
@@ -681,7 +684,7 @@ public class BlocksFunctionFactory {
             int[] posiOld;
             char bloc;
             int col;
-            
+            System.out.println("AQUI");
             //BLOCO A
             if (board.MOVE_a_0_1.equals(action)) {
                 System.out.println("MOVE A 0 1");
