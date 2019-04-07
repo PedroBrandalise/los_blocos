@@ -5,7 +5,6 @@
  */
 package aima.core.environment.blocks;
 
-import aima.core.environment.blocks.BlocksState;
 import aima.core.search.framework.GoalTest;
 
 /**
@@ -27,18 +26,18 @@ public class BlocksGoalState implements GoalTest {
     }
     
     private void zeraTudo(){
-        for(int i = 0; i<3;i++){
-            for(int j = 0; j<3;j++){
-                goal[i][j]='\u0000';
+        for(int linha = 0; linha<3;linha++){
+            for(int coluna = 0; coluna<3;coluna++){
+                goal[linha][coluna] = '\u0000';
             }
         }
     }
     
-    public void setGoal(char bloco1, int i1, int j1,char bloco2, int i2, int j2,char bloco3, int i3, int j3  ){
+    public void setGoal(char bloco1, int linha1, int coluna1, char bloco2, int linha2, int coluna2, char bloco3, int linha3, int coluna3){
         zeraTudo();
-        goal[i1][j1] = bloco1;  //todos empilhandos na posicao 0
-        goal[i2][j2] = bloco2;
-        goal[i3][j3] = bloco3;        
+        goal[linha1][coluna1] = bloco1;  //todos empilhandos na posicao 0
+        goal[linha2][coluna2] = bloco2;
+        goal[linha3][coluna3] = bloco3;        
     }
 
 }

@@ -13,50 +13,6 @@ import aima.core.agent.impl.DynamicAction;
  * @author jcarlos
  */
 public class BlocksState {
-    /*
-    public Action DESEMP_aFrom_bto_0 = new DynamicAction("DESEMP a from b to 0");
-    public Action DESEMP_aFrom_bto_1 = new DynamicAction("DESEMP a from b to 1");
-    public Action DESEMP_aFrom_bto_2 = new DynamicAction("DESEMP a from b to 2");
-    public Action DESEMP_aFrom_cto_0 = new DynamicAction("DESEMP a from c to 0");
-    public Action DESEMP_aFrom_cto_1 = new DynamicAction("DESEMP a from c to 1");
-    public Action DESEMP_aFrom_cto_2 = new DynamicAction("DESEMP a from c to 1");
-
-    public Action DESEMP_bFrom_ato_0 = new DynamicAction("DESEMP b from a to 0");
-    public Action DESEMP_bFrom_ato_1 = new DynamicAction("DESEMP b from a to 1");
-    public Action DESEMP_bFrom_ato_2 = new DynamicAction("DESEMP b from a to 2");
-    public Action DESEMP_bFrom_cto_0 = new DynamicAction("DESEMP b from c to 0");
-    public Action DESEMP_bFrom_cto_1 = new DynamicAction("DESEMP b from c to 1");
-    public Action DESEMP_bFrom_cto_2 = new DynamicAction("DESEMP b from c to 1");
-
-    public Action DESEMP_cFrom_ato_0 = new DynamicAction("DESEMP c from a to 0");
-    public Action DESEMP_cFrom_ato_1 = new DynamicAction("DESEMP c from a to 1");
-    public Action DESEMP_cFrom_ato_2 = new DynamicAction("DESEMP c from a to 2");
-    public Action DESEMP_cFrom_bto_0 = new DynamicAction("DESEMP c from b to 0");
-    public Action DESEMP_cFrom_bto_1 = new DynamicAction("DESEMP c from b to 1");
-    public Action DESEMP_cFrom_bto_2 = new DynamicAction("DESEMP c from b to 1");
-
-    public Action EMP_aFrom_0to_b = new DynamicAction("EMP a from b to 0");
-    public Action EMP_aFrom_1to_b = new DynamicAction("EMP a from b to 1");
-    public Action EMP_aFrom_2to_b = new DynamicAction("EMP a from b to 2");
-    public Action EMP_aFrom_0to_c = new DynamicAction("EMP a from c to 0");
-    public Action EMP_aFrom_1to_c = new DynamicAction("EMP a from c to 1");
-    public Action EMP_aFrom_2to_c = new DynamicAction("EMP a from c to 2");
-
-    public Action EMP_bFrom_0to_a = new DynamicAction("EMP b from a to 0");
-    public Action EMP_bFrom_1to_a = new DynamicAction("EMP b from a to 1");
-    public Action EMP_bFrom_2to_a = new DynamicAction("EMP b from a to 2");
-    public Action EMP_bFrom_0to_c = new DynamicAction("EMP b from c to 0");
-    public Action EMP_bFrom_1to_c = new DynamicAction("EMP b from c to 1");
-    public Action EMP_bFrom_2to_c = new DynamicAction("EMP b from c to 2");
-
-    public Action EMP_cFrom_0to_a = new DynamicAction("EMP c from a to 0");
-    public Action EMP_cFrom_1to_a = new DynamicAction("EMP c from a to 1");
-    public Action EMP_cFrom_2to_a = new DynamicAction("EMP c from a to 2");
-    public Action EMP_cFrom_0to_b = new DynamicAction("EMP c from b to 0");
-    public Action EMP_cFrom_1to_b = new DynamicAction("EMP c from b to 1");
-    public Action EMP_cFrom_2to_b = new DynamicAction("EMP c from b to 2");
-    */
-    // ==================== NOVA IMPLEMENTAÇÃO ====================
     
     public Action MOVE_a_0_1 = new DynamicAction("MOVE a from 0 to 1");
     public Action MOVE_a_0_2 = new DynamicAction("MOVE a from 0 to 2");
@@ -95,11 +51,11 @@ public class BlocksState {
         }
     }
     
-    public void setState(char bloco1, int i1, int j1,char bloco2, int i2, int j2,char bloco3, int i3, int j3  ){
+    public void setState(char bloco1, int linha1, int coluna1, char bloco2, int linha2, int coluna2, char bloco3, int linha3, int coluna3){
         zeraTudo();
-        stacks[i1][j1] = bloco1;  //todos empilhandos na posicao 0
-        stacks[i2][j2] = bloco2;
-        stacks[i3][j3] = bloco3;        
+        stacks[linha1][coluna1] = bloco1;  //todos empilhandos na posicao 0
+        stacks[linha2][coluna2] = bloco2;
+        stacks[linha3][coluna3] = bloco3;        
     }
 
 }
