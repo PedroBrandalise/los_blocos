@@ -17,10 +17,13 @@ public class BlocksGoalState implements GoalTest {
 
     // todos na mesa
     public boolean isGoalState(Object state) {
+        
         BlocksState currentState = (BlocksState) state;
         if ((currentState.stacks[0][0] == 'a') && (currentState.stacks[0][1] == 'b') && (currentState.stacks[0][2] == 'c')) {
+         
             return true;
         }
+        //System.out.println("burbvio4vi4ovbtr");
 
         return false;
     }

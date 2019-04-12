@@ -50,12 +50,12 @@ public class UEPG {
         BlocksGoalState goalState = new BlocksGoalState();
 
         blockState.setState('a', 0, 0, 'b', 1, 0, 'c', 2, 0);
-        goalState.setGoal('a', 0, 0, 'b', 1, 0, 'c', 2, 0);
+        goalState.setGoal('a', 0, 0, 'b', 0, 1, 'c', 0, 2);
 
         Problem problem = new Problem(blockState, BlocksFunctionFactory.getActionsFunction(),
                 BlocksFunctionFactory.getResultFunction(), goalState);
 
-        DepthLimitedSearch search = new DepthLimitedSearch(4);
+        DepthLimitedSearch search = new DepthLimitedSearch(6);
         SearchAgent agent = new SearchAgent(problem, search);
 
         List<Action> actions = agent.getActions();

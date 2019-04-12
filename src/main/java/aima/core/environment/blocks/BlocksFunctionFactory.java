@@ -48,69 +48,69 @@ public class BlocksFunctionFactory {
             // MOVIMENTAÇÃO DO BLOCO 'A'
             
             
-            if ((isFree('a', board)) && freeNivel(1, board)<3 && (isAtPos('a', 0, board)) ) {
+            if ((isFree('a',0, board)) && colunaLivre(1, board) ) {
                 actions.add(board.MOVE_a_0_1);
             }            
-            if ((isFree('a', board)) && freeNivel(2, board)<3 && (isAtPos('a', 0, board)) ) {
+            if ((isFree('a',0, board)) && colunaLivre(2, board) ) {
                 actions.add(board.MOVE_a_0_2);
             }            
-            if ((isFree('a', board)) && freeNivel(0, board)<3 && (isAtPos('a', 1, board)) ) {
+            if ((isFree('a',1, board)) && colunaLivre(0, board) ) {
                 actions.add(board.MOVE_a_1_0);
             }            
-            if ((isFree('a', board)) && freeNivel(2, board)<3 && (isAtPos('a', 1, board)) ) {
+            if ((isFree('a',1, board)) && colunaLivre(2, board) ) {
                 actions.add(board.MOVE_a_1_2);
             }
-            if ((isFree('a', board)) && freeNivel(0, board)<3 && (isAtPos('a', 2, board)) ) {
+            if ((isFree('a',2, board)) && colunaLivre(0, board) ) {
                 actions.add(board.MOVE_a_2_0);
             }
-            if ((isFree('a', board)) && freeNivel(1, board)<3 && (isAtPos('a', 2, board)) ) {
+            if ((isFree('a',2, board)) && colunaLivre(1, board) ) {
                 actions.add(board.MOVE_a_2_1);
             }
             
             // MOVIMENTAÇÃO DO BLOCO 'B'
             
-            if ((isFree('b', board)) && freeNivel(1, board)<3 && (isAtPos('b', 0, board)) ) {
+            if ((isFree('b',0, board)) && colunaLivre(1, board) ) {
                 actions.add(board.MOVE_b_0_1);
             }            
-            if ((isFree('b', board)) && freeNivel(2, board)<3 && (isAtPos('b', 0, board)) ) {
+            if ((isFree('b',0, board)) && colunaLivre(2, board) ) {
                 actions.add(board.MOVE_b_0_2);
             }            
-            if ((isFree('b', board)) && freeNivel(0, board)<3 && (isAtPos('b', 1, board)) ) {
+            if ((isFree('b',1, board)) && colunaLivre(0, board) ) {
                 actions.add(board.MOVE_b_1_0);
             }            
-            if ((isFree('b', board)) && freeNivel(2, board)<3 && (isAtPos('b', 1, board)) ) {
+            if ((isFree('b',1, board)) && colunaLivre(2, board) ) {
                 actions.add(board.MOVE_b_1_2);
             }
-            if ((isFree('b', board)) && freeNivel(0, board)<3 && (isAtPos('b', 2, board)) ) {
+            if ((isFree('b',2, board)) && colunaLivre(0, board) ) {
                 actions.add(board.MOVE_b_2_0);
             }
-            if ((isFree('b', board)) && freeNivel(1, board)<3 && (isAtPos('b', 2, board)) ) {
+            if ((isFree('b',2, board)) && colunaLivre(1, board) ) {
                 actions.add(board.MOVE_b_2_1);
             }
             
             // MOVIMENTAÇÃO DO BLOCO 'c'
             
-            if ((isFree('c', board)) && freeNivel(1, board)<3 && (isAtPos('c', 0, board)) ) {
+            if ((isFree('c',0, board))&& colunaLivre(1, board) ) {
                 actions.add(board.MOVE_c_0_1);
             }            
-            if ((isFree('c', board)) && freeNivel(2, board)<3 && (isAtPos('c', 0, board)) ) {
+            if ((isFree('c',0, board)) && colunaLivre(2, board) ) {
                 actions.add(board.MOVE_c_0_2);
             }            
-            if ((isFree('c', board)) && freeNivel(0, board)<3 && (isAtPos('c', 1, board)) ) {
+            if ((isFree('c',1, board)) && colunaLivre(0, board) ) {
                 actions.add(board.MOVE_c_1_0);
             }            
-            if ((isFree('c', board)) && freeNivel(2, board)<3 && (isAtPos('c', 1, board)) ) {
+            if ((isFree('c',1, board)) && colunaLivre(2, board) ) {
                 actions.add(board.MOVE_c_1_2);
             }
-            if ((isFree('c', board)) && freeNivel(0, board)<3 && (isAtPos('c', 2, board)) ) {
+            if ((isFree('c',2, board)) && colunaLivre(0, board) ) {
                 actions.add(board.MOVE_c_2_0);
             }
-            if ((isFree('c', board)) && freeNivel(1, board)<3 && (isAtPos('c', 2, board)) ) {
+            if ((isFree('c',2, board)) && colunaLivre(1, board) ) {
                 actions.add(board.MOVE_c_2_1);
             }
             
             //****************************************************************************
-
+                System.out.println(actions);
              
             return actions;
         }
@@ -134,20 +134,15 @@ public class BlocksFunctionFactory {
             return false;
         }
         
-        /**
-         * 
-         * @param coluna
-         * @param board
-         * @return linha mais alta de dada coluna
-         
-        private int top(int coluna,  BlocksState board){
-            for (int i = 0 ; i<3;i++){
-                if(board.stacks[i][coluna]== '\u0000') {
-                    return i;
+        private boolean colunaLivre(int coluna, BlocksState board){
+            for (int i = 2; i>=0;i--){
+                if(board.stacks[i][coluna]=='\u0000'){
+                    return true;
                 }
             }
-            return 0;            
-        }*/
+            return false;
+            
+        }
         
         /**
         * @param a
@@ -185,21 +180,20 @@ public class BlocksFunctionFactory {
          * 
          * @param bloco
          * @param board
-         * @return true se não tiver ninguém acima do bloco escolhido e nao for o ultimo
+         * @return esta no topo da pilha
          *  
          */
-        private boolean isFree(char bloco, BlocksState board) {
-            for (int linha = 0; linha < 2; linha++) {
-                for (int coluna = 0; coluna < 3; coluna++) {
-
-                    if (board.stacks[linha][coluna] == bloco) {
-                        if (board.stacks[linha+1][coluna] == '\u0000' && linha+1 < 3) {
-                            System.out.println(bloco + "ESTÁ LIVRE");
+        private boolean isFree(char bloco, int colunaatual, BlocksState board) {
+            
+            for (int linha = 2; linha >0; linha--) {
+                    if (board.stacks[linha][colunaatual] != '\u0000') {
+                        if (board.stacks[linha][colunaatual] == bloco) {
+                            //System.out.println(bloco + "ESTÁ LIVRE");
                             return true;
+                        } else{
+                            return false;
                         }
                     }
-
-                }
             }
 
             return false;
